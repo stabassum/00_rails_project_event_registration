@@ -1,0 +1,44 @@
+<h2>Events Registered For</h2>
+
+<br>
+
+<%= link_to "ALL USERS", :action => 'index', :controller => 'users' %>
+
+
+
+<br>
+
+
+<div>
+
+  <h3>Filter posts:</h3>
+
+  <%= form_tag("/registrations", method: "get") do %>
+    User <%= select_tag "user", options_from_collection_for_select(User.all, "id", "username"), include_blank: true %>
+  <%= submit_tag "Filter" %>
+
+  
+  
+  <% end %>
+
+</div>
+<br>
+<% @registrations.each do |registration| %>
+    <div>
+  
+      <h3><u><%= registration.event.name %></u></h3>
+
+     <h4> <%= link_to registration.user.username, user_registrations_path(registration.user) %></h4>
+      
+
+      <!-- <h4>Registered User: <%= link_to registration.user.username, user_path(registration.user) %></h4>  -->
+      
+      <h4>Registered User: <%= registration.user.username %></h4>
+
+      <!-- the user_registrations_path gives users/1/registrations whereas users_path will give users/1 path -->
+      
+      <p><b>Event Description:</b> <%= registration.event.description %></p>
+  
+    </div>
+    <br>
+<% end %> 

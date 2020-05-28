@@ -1,0 +1,15 @@
+
+<u><h2>Edit User Account<h2></u>
+
+<div style="font-size:14px">
+    <%= link_to "My Homepage", current_user%> <br><br>
+</div>
+
+<p style="color:red; font-size:13px">
+    <i>
+        Username and email address cannot be updated. If you input new username and email address, the information will not be saved.
+    </i>
+</p>
+
+<%= render 'form' %>
+

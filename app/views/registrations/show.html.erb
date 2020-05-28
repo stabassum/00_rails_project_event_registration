@@ -1,0 +1,19 @@
+<br>
+<br>
+<%= link_to "All Registrations", "/registrations"%>
+
+<h2>Registration Details</h2>
+
+<p>by <%= @registration.user.username %> 
+
+(<%= link_to "Edit Post", edit_user_registration_path(@registration.user, @registration) if @registration.user %>)</p>
+
+User: <%= @registration.user.username %><br>
+
+Event Name: <%= link_to @registration.event.name, event_path(@registration.event) %> <br>
+
+Task Category: <%= @registration.task_category %><br>
+
+Task Descriptions: <%= @registration.task_descriptions %><br>
+
+Shirt Size: <%= @registration.shirt_size %><br>

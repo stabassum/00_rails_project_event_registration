@@ -1,0 +1,49 @@
+<style>
+  .appinfo, .login, .noaccount{
+      width: 550px;
+      border: 2px solid red;
+  }
+
+</style>
+
+  <h2>Tech Event Registration App</h2>
+
+  <p>User do not need an account to do the following:</p>
+    <div class = "noaccount">
+      <ul>
+        <li><%= link_to "View all registered users", users_path %> </li>
+        <li><%= link_to "List of events users allowed to register for", events_path %></li>
+      </ul>
+    </div>
+
+<p>Registered users are allowed to interact with authentication & authorization functionalities</p>
+
+  <div class="appinfo">
+    <ul>
+
+      <p><b>AUTHENTICATION</b></p>
+
+      <li>Users create a new account</li>
+      <li>Users login with the created account <b>OR</b> login using GitHub OmniAuth</li>
+      
+      <p><b>AUTHORIZATION</b></p>
+      
+      <li>Users may view list of all of the tech events</li>
+      <li>Users may view details of individual Tech events</li>
+      <li>Users may register to volunteer for a tech event</li>
+      <li>Users may also register other users to voluteer for a tech event</li>
+      <li>Users may view all registrations</li>
+      <li>Users may edit their profile information only</li>
+      <li>Users may edit their specific registrations only</li>
+    </ul>
+  </div>
+
+  <p>Please sign up or login below to use the application:</p>
+
+<div class="login">
+  <ul>
+    <li><%= link_to "Signup as a new user", new_user_path %></li>
+    <li><%= link_to "Login as an existing user", login_path %></li>
+  </ul>
+</div>
+

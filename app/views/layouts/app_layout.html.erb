@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- The default layout is here: -->
+  <!-- app/views/layouts/application.html.erb -->
+  <!-- this layout is specific to the this app -->
+  <head>
+    <title>User Registration</title>
+    <!-- without the csrf tag you will get authenticity errors -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- this line of code is not used in this app because itt currently has no javascript -->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- this will utilize styles in: app/assets/stylesheets/application.css -->
+    <!-- without this line of code, text fields incorrectly populated [or left blank] will not show up as red -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body>
+    <img src="https://wiki.eclipse.org/images/9/96/ECNA2016_Hackathon_logo_final_coloredit1.png" alt="no image" width="200px" height="100px">
+    <%= yield %>
+  </body>
+
+  <br>
+
+  <footer>
+    <center>
+      <% if !current_page?(root_path) %>
+      <%= link_to "Home", root_path %><br><br>
+      <% end %>
+      <% if current_user %>
+        <%= link_to "Logout", logout_path %>
+      <% end %>
+    </center>
+  </footer>
+</html>

@@ -1,0 +1,7 @@
+<h2>Edit Volunteer Registration for User: <%= @registration.user.username%></h2>
+
+<br>
+
+<%= render 'form'%>
+<br>
+<%= button_to "Delete Registration", registration_path(@registration), method: :delete, data: { confirm: "Are you sure you want to delete this registration?"} %>

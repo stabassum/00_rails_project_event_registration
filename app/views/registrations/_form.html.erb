@@ -1,0 +1,41 @@
+<%= link_to "My Homepage", current_user%> <br><br>
+<%= form_for(@registration) do |r| %>
+
+
+    <strong><u><%= r.label :task_category %></u></strong><br><br>
+    
+    Event Setup<%= r.radio_button :task_category, 'Event Setup' %><br>
+    Event Cleanup<%= r.radio_button :task_category, 'Serve Food' %><br>
+    Serve Food<%= r.radio_button :task_category, 'Event Cleanup' %><br>
+    Other<%= r.radio_button :task_category, 'Other' %><br>
+    <br>
+    <%= r.label :task_descriptions %>
+    <br>
+    <%= r.text_field :task_descriptions %><br>
+
+    <br>
+
+    <%= r.label :shirt_size %>
+
+    <strong><u><%= r.label :shirt_size %></u></strong>
+    <br>
+    <br>
+    Small (S)<%= r.radio_button :shirt_size, 'small' %><br>
+    Medium (M)<%= r.radio_button :shirt_size, 'small' %><br>
+    Large (L)<%= r.radio_button :shirt_size, 'small' %><br>
+    Extra Large (XL)<%= r.radio_button :shirt_size, 'small' %><br>
+
+    <br>
+    <br>
+
+    Select User:  <%= r.collection_select :user_id, User.all, :id, :username %>
+    <br>
+    
+    Select Event: <%= r.collection_select :event_id, Event.all, :id, :name %>
+
+    <br>
+    <br>
+
+    <%= r.submit %>
+
+<% end %>

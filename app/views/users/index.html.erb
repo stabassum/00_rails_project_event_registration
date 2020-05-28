@@ -1,0 +1,45 @@
+<style>
+
+    div {
+        text-align: center;
+    }
+
+</style>
+
+<div>
+
+    <h3>There are currently <u style = "color: red;"><%= @users.count %></u> users registerd</h3>
+
+    <div style="font-size: 14px">
+        <i>
+            Logged in user is only authorized to add other users to volunteer assignment. <br>
+            Logged in user is not allowed to change any personal information of other users. <br>
+            Logged is user is only allowed to change their own personal information. <br>
+        </i>
+    </div>
+    
+    <u><h4>CURRENT USERS</h4></u>
+
+</div>
+
+<table border="3" align = "center">
+    <tr>
+        <th> Username </th>
+
+    </tr>
+
+        <tr>
+
+        <td>
+            <% @users.each do |user| %> 
+                <!-- <%= link_to user.username, user_path(user)%> -->
+                <%= user.username %>
+                <br>
+            <% end %>   
+        </td>
+
+    </tr>
+
+    <br>
+
+</table>

@@ -1,0 +1,61 @@
+<style>
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td, th {
+    border: 4px solid;
+    text-align: left;
+    padding: 8px;
+  }
+
+</style>
+
+<h1>List of Hackathon Events</h1><br>
+
+<p><em>Below is a list of upcoming hackathon events. Dates are subject to change.</em></p>
+
+<table>
+  
+  <tr>
+    <th>Event Name</th>
+    <th>Event Date</th>
+    <th>Event Location</th>
+    <th>Event Description</th>
+  </tr>
+
+  <tr>
+  
+  <td>
+    <% @events.each do |event| %>
+    <%= link_to event.name, event_path(event) %> 
+    <br>
+    <% end %>
+  </td>
+  
+  <td>
+    <% @events.each do |event| %>
+    <%=  event.date %> 
+    <br>
+    <% end %>
+  </td>
+
+  <td>
+    <% @events.each do |event| %>
+    <%=  event.location %> 
+    <br>
+    <% end %>
+  </td>
+
+  <td>
+    <% @events.each do |event| %>
+    <%=  event.description %> 
+    <br>
+    <% end %>
+  </td>
+
+  </tr>
+  
+  
+</table>

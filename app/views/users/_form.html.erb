@@ -1,0 +1,49 @@
+<style>
+      
+body {
+  text-align: center;
+}
+
+</style> 
+
+<%= form_for(@user) do |u| %> 
+
+
+    <% if @user.errors.any? %>
+        <div class="field_with_error" style="color:red; font-size:14px">
+            <h2>
+                <%= pluralize(@user.errors.count, "error") %>
+                prohibited this user from being saved:
+            </h2>
+
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li style="list-style-type:none;"><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+
+    <% end %>
+    
+    <div style = "font-size: 16px">
+        <%= u.label :email %>
+        <%= u.text_field :email %><br>
+
+        <%= u.label :username %>
+        <%= u.text_field :username %><br>
+
+        <%= u.label :password %>
+        <%= u.password_field :password %><br>
+    </div>
+
+    <%= u.submit %>
+
+<% end %>
+<br>
+<div style="font-size: 12px">
+    <p><u>To successfully save your user data, be sure to: </u></p>
+    <p>1. Have a minimum of 1 character for the first and last name</p>
+    <p>2. A unique email address (if email is taken by another user, you must enter a email that has not been taken)</p>
+    <p>3. The user name must be between 4 to 12 characters</p>
+    <p>4. The password must be between 5 to 25 characters long</p>
+</div>

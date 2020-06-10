@@ -17,6 +17,8 @@ class RegistrationsController < ApplicationController
             @registrations = Registration.all
         end
 
+       #  @registration = Registration.max_registrations # incorrect approach, check the users controller
+    
     end
 
     def show
@@ -29,11 +31,13 @@ class RegistrationsController < ApplicationController
 
     def create
         @registration = Registration.new(registration_params(:task_category, :task_descriptions, :shirt_size, :user_id, :event_id))
-        if @registration.valid?
-            @registration.save
+        # if @registration.valid? # redundant as line 33
+        if @registration.save # this will call the validations anyways
             redirect_to registration_path(@registration) 
+            # a redirect is a new http request, and since it is a new request and is stateless, we basically start over
+            # this on the otherhand would refer to line 27 vs. line 38
         else
-            render :new
+            render :new # refer to line 31
         end
     end
 

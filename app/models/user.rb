@@ -10,6 +10,14 @@ class User < ApplicationRecord
   has_many :registrations
   has_many :events, through: :registrations
 
+  # scope :max_registrations, -> {order("registrations DESC").limit(1)}
+
+  # scope :max_registrations, -> {order(registrations: :desc).limit(1)}
+
+ # scope :max_registrations, -> {User.limit(1).order(registrations: :desc)}
+
+  scope :most_registrations, -> {order(registrations: :desc).limit(1)}
+
   # This method gets created here:
   # https://www.youtube.com/watch?v=UAvuo-EbTFY (38:00 / 56:18)
   # The "auth_hash" below is set to the value of request.env["omniauth.auth"]
@@ -48,5 +56,19 @@ class User < ApplicationRecord
   def last_updated
       updated_at.strftime("Last updated %A, %b %e, at %l:%M %p")
   end
+
+
+  # User.all 
+
+  # def self.users_with_max_registrations
+  #     @user = User.where('max(:events)')
+  # end
+
+  # def self.events
+  #   where()
+  # end
+
+  # Scope level method - class method to find the user with the most registrations
+  # first find the 
 
 end

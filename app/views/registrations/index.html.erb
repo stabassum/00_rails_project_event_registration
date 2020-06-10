@@ -16,10 +16,13 @@
   <%= form_tag("/registrations", method: "get") do %>
     User <%= select_tag "user", options_from_collection_for_select(User.all, "id", "username"), include_blank: true %>
   <%= submit_tag "Filter" %>
-
-  
   
   <% end %>
+
+  <br>
+
+  <%= link_to "Users with Most Registrations", :action => 'index', :controller => 'registrations' %>
+  
 
 </div>
 <br>

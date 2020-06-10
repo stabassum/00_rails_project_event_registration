@@ -33,7 +33,8 @@ class SessionsController < ApplicationController
       # params[:authenticity_token]
       # ...if these don't show up in the Rails web console, something is broken
       @user = User.find_by(:email => params[:email])
-      if @user && @user.authenticate(params[:password])
+      if @user && @user.authenticate(params[:password]) # authenticate allows us to check that the salted/hashed password mathes the salted password
+        # if @user && @user.password == params(:[password])  - this would not work because this is encrypted
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else

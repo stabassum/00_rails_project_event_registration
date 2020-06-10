@@ -10,6 +10,8 @@
 
     <h3>There are currently <u style = "color: red;"><%= @users.count %></u> users registerd</h3>
 
+
+
     <div style="font-size: 14px">
         <i>
             Logged in user is only authorized to add other users to volunteer assignment. <br>
@@ -17,7 +19,14 @@
             Logged is user is only allowed to change their own personal information. <br>
         </i>
     </div>
-    
+
+    <br>
+        <%= link_to "Users with Most Registrations", :action => 'index', :controller => 'users' %>
+
+    <br>
+
+    <%=  @user_most_registrations %>
+
     <u><h4>CURRENT USERS</h4></u>
 
 </div>

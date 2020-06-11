@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    @user_most_registrations = User.most_registrations
+    @user_most_registrations = User.most_registrations 
+    # @user_most_registrations = @users.most_registrations
   end
 
   def show 

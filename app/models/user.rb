@@ -16,7 +16,22 @@ class User < ApplicationRecord
 
  # scope :max_registrations, -> {User.limit(1).order(registrations: :desc)}
 
-  scope :most_registrations, -> {order(registrations: :desc).limit(1)}
+  # scope :most_registrations, -> {order(registrations: :desc).limit(1)}
+  # scope :most_registrations, -> {order(registrations: :desc)} 
+
+  # scope :most_registrations, -> {User.joins(:registrations).group("users.id").order("count(users.id) DESC").limit(1)} 
+
+  # scope :most_registrations, -> {User.joins("left join registrations on registrations.user_id = users.id").group("users.id").order("count(users.id) DESC")}
+
+  # --------
+  
+  # The method below is returning what I want in the console : tested this out in the console as:
+  
+  # User.joins(:registrations)
+  # User.joins(:regisrtations).group("users.id")
+  # User.joins(:regisrtations).group("users.id").order("count(users.id) DESC").limit(1)
+  scope :most_registrations, ->  {User.joins(:registrations).group("user.id").order("count(user.id) DESC").limit(1)}
+
 
   # This method gets created here:
   # https://www.youtube.com/watch?v=UAvuo-EbTFY (38:00 / 56:18)

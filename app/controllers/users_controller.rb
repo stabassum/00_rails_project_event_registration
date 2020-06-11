@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
+    # below code for scope method
     @user_most_registrations = User.most_registrations 
     # @user_most_registrations = @users.most_registrations
   end

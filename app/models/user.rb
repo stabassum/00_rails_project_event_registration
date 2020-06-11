@@ -30,8 +30,14 @@ class User < ApplicationRecord
   # User.joins(:registrations)
   # User.joins(:regisrtations).group("users.id")
   # User.joins(:regisrtations).group("users.id").order("count(users.id) DESC").limit(1)
+ 
+  # But when I ran the method as below, i received errors on the console
   scope :most_registrations, ->  {User.joins(:registrations).group("user.id").order("count(user.id) DESC").limit(1)}
 
+  # tried to redo the scope above as class method but was also not working
+  # def self.most_registrations
+  #   User.joins(:registrations).group("user.id").order("count(user.id) DESC").limit(1)
+  # end
 
   # This method gets created here:
   # https://www.youtube.com/watch?v=UAvuo-EbTFY (38:00 / 56:18)

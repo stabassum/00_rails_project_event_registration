@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   # http://localhost:3000/auth/github/callback
   # the get request below must match the "Authorization callback URL" you specify in the GitHub OAuth app.
   get '/auth/:provider/callback' => 'sessions#create'
+
+  # route for search bar in index.html.erb in /events
+  get '/search' => "events#index"
+
+
+
   # You can create a new OAuth (same thing as OmniAuth) on GitHub by going here: https://github.com/settings/developers
 
   # The second part of this OmniAuth business is to go to this directory: config/initializers
@@ -30,6 +36,7 @@ Rails.application.routes.draw do
   # resources :users
 
   # This route grabs the homepage for the actual app you're building
+
   get '/homeapp' => "site#homeapp"
 
   get '/auth/:provider/callback' => 'sessions#create'

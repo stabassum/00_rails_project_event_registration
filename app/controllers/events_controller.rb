@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     # Events controller complete. Only 2 methods will be required for this controller
 
     def index
-        byebug
+        
         # note: turbo links -> helps load pages faster, but sometimes does not 
 
         # if the params[:q] exists we do a search 

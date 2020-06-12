@@ -12,4 +12,3 @@ class Event < ActiveRecord::Base
     scope :search_item, -> (event_name) { where("name LIKE ? ", "%#{event_name}%")}
 
 end 
-
